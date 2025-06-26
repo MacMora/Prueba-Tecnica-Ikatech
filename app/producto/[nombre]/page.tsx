@@ -1,5 +1,10 @@
 import ProductPage from "../../../components/ProductPage";
 
-export default function Producto({ params }: { params: { nombre: string } }) {
-  return <ProductPage nombre={params.nombre} />;
+interface PageProps {
+  params: Promise<{ nombre: string }>;
+}
+
+export default async function Producto({ params }: PageProps) {
+  const { nombre } = await params;
+  return <ProductPage nombre={nombre} />;
 } 

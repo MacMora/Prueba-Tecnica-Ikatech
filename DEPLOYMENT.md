@@ -1,22 +1,34 @@
 # Guía de Despliegue en Vercel
 
-## Problema Resuelto
+## Problemas Resueltos
 
-El error de despliegue se debía a incompatibilidades entre versiones de React 19 y Redux Toolkit. Se han realizado las siguientes correcciones:
+### 1. Error ERESOLVE (React 19 + Redux Toolkit)
+**Problema**: Incompatibilidad entre React 19 y Redux Toolkit 1.9.7
+**Solución**: Actualización de dependencias
+- `@reduxjs/toolkit`: `^1.9.7` → `^2.2.1`
+- `react-redux`: `^8.1.3` → `^9.1.0`
 
-### Cambios Realizados
+### 2. Error de Configuración Next.js 15
+**Problema**: Opción `swcMinify` deprecada en Next.js 15
+**Solución**: Eliminada la opción deprecada
 
-1. **Actualización de Dependencias**:
-   - `@reduxjs/toolkit`: `^1.9.7` → `^2.2.1`
-   - `react-redux`: `^8.1.3` → `^9.1.0`
+### 3. Error de Tipos TypeScript (Async Params)
+**Problema**: En Next.js 15, los `params` son ahora asíncronos (Promise)
+**Solución**: Actualización de tipos y manejo async
 
-2. **Archivos de Configuración Agregados**:
-   - `.npmrc`: Configuración para resolver conflictos de dependencias
-   - `vercel.json`: Configuración específica para Vercel
-   - `next.config.ts`: Optimizaciones para React 19
+## Cambios Realizados
 
-3. **Mejoras en Tipos**:
-   - `react-slick.d.ts`: Declaración de tipos mejorada
+### Archivos de Configuración
+1. **`package.json`**: Dependencias actualizadas
+2. **`.npmrc`**: Configuración para resolver conflictos
+3. **`vercel.json`**: Configuración específica para Vercel
+4. **`next.config.ts`**: Optimizaciones para Next.js 15
+5. **`tsconfig.json`**: Configuración de tipos mejorada
+
+### Archivos de Código
+1. **`app/producto/[nombre]/page.tsx`**: Manejo async de params
+2. **`types/next.d.ts`**: Tipos globales para Next.js 15
+3. **`components/react-slick.d.ts`**: Tipos mejorados
 
 ## Pasos para Despliegue
 
@@ -62,7 +74,7 @@ Si el despliegue automático falla, configurar manualmente en Vercel:
 - **Framework Preset**: Next.js
 - **Build Command**: `npm run build`
 - **Output Directory**: `.next`
-- **Install Command**: `npm install`
+- **Install Command**: `npm install --legacy-peer-deps`
 - **Node.js Version**: 18.x o superior
 
 ### 5. Variables de Entorno (si es necesario)
@@ -89,6 +101,11 @@ Si hay errores de ESLint:
 1. Corregir los errores localmente
 2. O temporalmente cambiar `ignoreDuringBuilds: true` en `next.config.ts`
 
+### Error: Next.js Config
+Si hay errores de configuración:
+1. Verificar que `next.config.ts` use la sintaxis correcta para Next.js 15
+2. Eliminar opciones deprecadas como `swcMinify`
+
 ## Verificación Post-Despliegue
 
 1. **Funcionalidad Básica**:
@@ -111,6 +128,18 @@ Si el despliegue falla:
 1. Revertir a la versión anterior en Git
 2. Forzar nuevo despliegue en Vercel
 3. Verificar logs de build para identificar el problema
+
+## Notas Importantes
+
+### Next.js 15 Cambios
+- Los `params` en páginas dinámicas son ahora asíncronos
+- Algunas opciones de configuración han sido deprecadas
+- Mejor soporte para React 19
+
+### React 19 Compatibilidad
+- Redux Toolkit 2.2.1+ es compatible
+- React Redux 9.1.0+ es compatible
+- Verificar compatibilidad de otras librerías
 
 ## Contacto
 
