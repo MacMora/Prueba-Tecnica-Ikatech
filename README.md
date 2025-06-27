@@ -145,12 +145,6 @@ Modal del carrito de compras con:
 - Botones de vaciar carrito y finalizar compra
 - Diseño responsive
 
-### Hero.tsx
-Sección hero de la página principal con:
-- Título y descripción
-- Call-to-action
-- Diseño responsive
-
 ## 🔧 Configuración de Redux
 
 ### Store Structure
