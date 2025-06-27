@@ -102,7 +102,8 @@ export default function ProductPage({ nombre }: Props) {
     p.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const sliderSettings = {
+  // Configuración base para sliders
+  const baseSliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -113,6 +114,28 @@ export default function ProductPage({ nombre }: Props) {
       { breakpoint: 768, settings: { slidesToShow: 2 } },
       { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
+  };
+
+  // Configuración para "Completa tu look" - Autoplay más rápido
+  const completaTuLookSettings = {
+    ...baseSliderSettings,
+    autoplay: true,
+    autoplaySpeed: 3000, // 3 segundos
+    pauseOnHover: true,
+    arrows: true,
+    fade: false,
+    cssEase: 'linear',
+  };
+
+  // Configuración para "Productos recomendados" - Autoplay más lento
+  const recomendadosSettings = {
+    ...baseSliderSettings,
+    autoplay: true,
+    autoplaySpeed: 4000, // 4 segundos
+    pauseOnHover: true,
+    arrows: true,
+    fade: false,
+    cssEase: 'ease-in-out',
   };
 
   return (
@@ -325,7 +348,7 @@ export default function ProductPage({ nombre }: Props) {
         <h2 className="bg-[#E7E6E2] w-full p-2 font-bold text-base md:text-lg mb-4">
           COMPLETA TU LOOK
         </h2>
-        <Slider {...sliderSettings}>
+        <Slider {...completaTuLookSettings}>
           {completaTuLook.map((p, i) => (
             <div key={i} className="px-2 py-6 max-md:mb-4">
               <div className="flex flex-col h-68">
@@ -364,7 +387,7 @@ export default function ProductPage({ nombre }: Props) {
         <h2 className="font-bold text-base md:text-lg mb-4 border-b border-black pb-2">
           PRODUCTOS RECOMENDADOS
         </h2>
-        <Slider {...sliderSettings}>
+        <Slider {...recomendadosSettings}>
           {recomendados.map((p, i) => (
             <div key={i} className="px-2 py-4 max-md:mb-4">
               <div className="flex flex-col h-68 border-b">

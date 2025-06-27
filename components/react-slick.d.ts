@@ -7,6 +7,12 @@ declare module 'react-slick' {
     speed?: number;
     slidesToShow?: number;
     slidesToScroll?: number;
+    autoplay?: boolean;
+    autoplaySpeed?: number;
+    pauseOnHover?: boolean;
+    arrows?: boolean;
+    fade?: boolean;
+    cssEase?: string;
     responsive?: Array<{
       breakpoint: number;
       settings: Partial<Settings>;
