@@ -230,34 +230,9 @@ La aplicación es compatible con cualquier proveedor que soporte Next.js:
 - **Keyboard navigation** - Navegación por teclado
 - **Color contrast** - Contraste adecuado de colores
 
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir un Pull Request
-
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 👥 Autores
-
-- **Equipo de Desarrollo** - *Desarrollo inicial* - [TuNombre]
-
-## 🙏 Agradecimientos
-
-- Hush Puppies por la inspiración del diseño
-- Next.js team por el framework
-- Tailwind CSS por el sistema de diseño
-- Comunidad de React por las herramientas y librerías
-
-## 📞 Soporte
-
-Para soporte técnico o preguntas sobre el proyecto:
-- Email: [tu-email@ejemplo.com]
-- Issues: [GitHub Issues](link-to-issues)
 
 ---
 
